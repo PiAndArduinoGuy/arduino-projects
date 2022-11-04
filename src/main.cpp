@@ -1,8 +1,8 @@
 #include "RelayToggler.h"
-#include "ThermistorTemperatureReader.h"
+#include "InterruptableThermistorTemperatureReader.h"
 #include <Arduino.h>
 
-ThermistorTemperatureReader thermistorTemperatureReader(A2, 2700, 3950, 25, 1000);
+InterruptableThermistorTemperatureReader interruptableThermistorTemperatureReader(A2, 2700, 3950, 25, 1000, 1);
 
 void setup() {
   Serial.begin(9600);
@@ -10,8 +10,12 @@ void setup() {
   relayToggler.turnOn();
 }
 
+
 void loop() {
-  float temperature = thermistorTemperatureReader.getTemperature();
+  float temperature = interruptableThermistorTemperatureReader.getTemperature();
   Serial.print("Temperature measured to be :");
   Serial.println(temperature);
+  Serial.print("Currently in state: ");
+  Serial.println(interruptableThermistorTemperatureReader.getState());
+  delay(1000);
 }
