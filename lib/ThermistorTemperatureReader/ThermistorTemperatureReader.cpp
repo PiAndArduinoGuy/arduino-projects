@@ -31,6 +31,8 @@ float ThermistorTemperatureReader::getTemperature(){
     temperature += 1.0 / (thermistorNominalCelciusTemperature + 273.15);  // + (1/To)
     temperature = 1.0 / temperature;                                      // Invert
     temperature -= 273.15;                                                // convert absolute temp to C
+    Serial.print("Temperature measured to be ");
+    Serial.println(temperature);
     return temperature;
 }
 

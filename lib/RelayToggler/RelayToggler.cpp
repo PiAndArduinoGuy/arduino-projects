@@ -6,6 +6,7 @@ RelayToggler::RelayToggler(int relayPinVal, RelayType relayTypeVal): relayPin{re
 };
 
 void RelayToggler::turnOn(){
+    Serial.println("Relay will be toggled to on.");
     if (relayType == NORMALLY_OPEN){
         digitalWrite(relayPin, LOW);
     } else {
@@ -14,6 +15,7 @@ void RelayToggler::turnOn(){
 };
 
 void RelayToggler::turnOff(){
+    Serial.println("Relay will be toggled to off.");
     if (relayType == NORMALLY_OPEN){
         digitalWrite(relayPin, HIGH);
     } else {
