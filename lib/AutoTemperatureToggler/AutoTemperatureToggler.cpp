@@ -1,8 +1,15 @@
 #include "AutoTemperatureToggler.h"
 
+// TODO: These need to be initalized in constructor - no need to have them statically defined.
+// TODO: Single responsiblity says we should define 2 new classes - automatic pump toggler and manual pump toggler
+//       Rename this class to an applicable name that will then have automatic and manual pump toggler, looking at current state 
+//       to determine what toggler is needed when (the job of this class is to look at state and call appropriate toggler!)
+// TODO: Huge constructors need to be refactored to make use of builder design pattern 
 int AutoTemperatureToggler::NUMBER_OF_TEMPERATURE_READINGS_TO_CAPTURE = 5;
-int AutoTemperatureToggler::AUTO_MODE_CHECK_DELAY = 1000;
+int AutoTemperatureToggler::AUTO_MODE_CHECK_DELAY = 20000;
 int AutoTemperatureToggler::BUTTON_PRESSES = 0;
+uint32_t AutoTemperatureToggler::currentTime {0};
+uint32_t AutoTemperatureToggler::autoModeTime {0};
 
 AutoTemperatureToggler::AutoTemperatureToggler(
     int relayPinVal, 
@@ -67,34 +74,24 @@ void AutoTemperatureToggler::performManualRelayToggling(){
     }
 }
 
-enum AnotherState {AUTO, MANUAL, UNINITALIZED};
-
 void AutoTemperatureToggler::performManualAndAutonomousRelayToggling(){
-    AnotherState currentState {UNINITALIZED};
-    AnotherState previousState {UNINITALIZED};
-    uint32_t currentTime {millis()};
-    uint32_t autoModeTime {millis()};
     switch(getState()){
         case UNINTERRUPTED:
             Serial.println("Auto mode.");
-            currentState = AUTO;
-            if (previousState != currentState){
-                previousState = currentState;
-                autoModeTime = millis();
+            if (autoModeTime == 0){
+                autoModeTime = millis(); 
             }
             currentTime = millis();
             if (currentTime >= autoModeTime + AUTO_MODE_CHECK_DELAY){
+                Serial.println("Will perform auto toggling.");
                 performAutoRelayToggling();
                 autoModeTime = currentTime;
             }
             break;
         
         case INTERRUPTED:
-            Serial.println("Override mode.");
-            currentState = MANUAL;
-            
+            Serial.println("Override mode.");            
             int overrideControl {digitalRead(overrideControlPin)};
-            
             if (overrideControl == HIGH){
                 BUTTON_PRESSES += 1;      
                 performManualRelayToggling();

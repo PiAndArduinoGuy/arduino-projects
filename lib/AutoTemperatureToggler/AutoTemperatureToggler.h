@@ -14,6 +14,8 @@ class AutoTemperatureToggler {
         static int NUMBER_OF_TEMPERATURE_READINGS_TO_CAPTURE;
         static int AUTO_MODE_CHECK_DELAY;
         static int BUTTON_PRESSES;
+        static uint32_t autoModeTime;
+        static uint32_t currentTime;
 
         float getTurnOnTemperature();
         void performAutoRelayToggling();
