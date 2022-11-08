@@ -1,0 +1,64 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/include",
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/src",
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/RelayToggler",
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/InterupptableThermistorTemperatureReader",
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/ThermistorTemperatureReader",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/AutoTemperatureToggler",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/include",
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/src",
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/RelayToggler",
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/InterupptableThermistorTemperatureReader",
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/ThermistorTemperatureReader",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/home/qkruger/Projects/Arduino Projects/PumpControllerClasses/lib/AutoTemperatureToggler",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/home/qkruger/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60105",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/home/qkruger/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
